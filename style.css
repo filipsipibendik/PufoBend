@@ -336,3 +336,10 @@ width: 100%;
     height: 210px;
 }
 
+.text
+{
+    font-size: 15px; /* alebo 15px, 14px – podľa toho, čo chceš */
+    line-height: 1.5;
+    text-align: justify; /* ak chceš aj zarovnanie */
+}
+
