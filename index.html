@@ -34,8 +34,8 @@ klávesové pasáže.
     
 
     <div class="photo-grid">
- <div class="photo-item big"><img src="images/Tasler.jpg" alt=""></div>
-        <div class="photo-item big"><img src="images/df.jpg" alt=""></div>
+ <div class="photo-item big"><img src="images/Tasler.jpg" class="zoom-img"></div>
+        <div class="photo-item big"><img src="images/df.jpg" class="zoom-img"></div>
        
     </div>
 
@@ -68,8 +68,8 @@ netušil, že tým otvára dvere k novej hudobnej kapitole. Piesne, ktoré roky 
 stali základom pre vznik PUFO BEND – kapely, ktorá spája bluesový cit, rockovú energiu a
 slovenskú dušu.</p>
 <div class="photo-grid">
-<div class="photo-item"><img src="images/meky.jpg" alt=""></div>
- <div class="photo-item"><img src="images/2014.jpg" alt=""></div>      
+<div class="photo-item"><img src="images/meky.jpg" class="zoom-img"></div>
+ <div class="photo-item"><img src="images/2014.jpg" class="zoom-img"></div>      
  
         
     </div>
@@ -106,10 +106,36 @@ kompilácii Bluesová spoločnosť No.10, kde prispeli tromi autorskými skladba
 PUFO BEND nie je len kapela. Je to príbeh o návrate, o viere v silu hudby, ktorá prekonáva
 čas aj pochybnosti. Je to cesta, ktorá začala v kluboch Prešova a dnes pokračuje na pódiách,
 kde rezonuje ich jedinečný hlas.
-<div class="photo-item"><img src="images/bitls.jpg" alt=""></div></p>
+<div class="photo-item"><img src="images/bitls.jpg" class="zoom-img"></div></p>
 </div>
 
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".zoom-img");
+    const lightbox = document.createElement("div");
+    lightbox.classList.add("lightbox");
+    document.body.appendChild(lightbox);
+
+    const img = document.createElement("img");
+    lightbox.appendChild(img);
+
+    // Show image
+    images.forEach(picture => {
+        picture.addEventListener("click", () => {
+            img.src = picture.src;
+            lightbox.classList.add("active");
+        });
+    });
+
+    // Close when clicking anywhere
+    lightbox.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+    });
+});
+</script>
+
 </body>
 </html>
