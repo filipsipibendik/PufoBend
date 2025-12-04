@@ -343,3 +343,37 @@ width: 100%;
     text-align: justify; /* ak chceš aj zarovnanie */
 }
 
+/* Fullscreen overlay */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999999; /* MAXIMUM */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+/* Visible state */
+.lightbox.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Image inside fullscreen */
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+}
