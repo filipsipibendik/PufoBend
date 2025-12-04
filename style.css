@@ -168,13 +168,7 @@ audio {
   pointer-events: none;
 }
 
-/* PHOTO GRID */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
+
 
 .photo-box {
   background: #222;
@@ -270,7 +264,7 @@ nav a:hover {
     font-size: 18px;
     line-height: 1.6;
 text-align: justify;
-text-align: center;
+
 
 }
 
