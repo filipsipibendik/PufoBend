@@ -84,10 +84,10 @@
     <h2>Fotogaléria</h2>
 
     <div class="photo-grid">
-        <div class="photo-item small"><img src="images/Adam.jpg" alt=""></div>
-        <div class="photo-item small"><img src="images/Bardejov-Pufobend.jpg" alt=""></div>
-        <div class="photo-item small"><img src="images/Filip.jpg" alt=""></div>
-        <div class="photo-item small"><img src="images/Pufo.jpg" alt=""></div>
+        <div class="photo-item small"><img src="images/Adam.jpg" class="zoom-img"></div>
+        <div class="photo-item small"><img src="images/Bardejov-Pufobend.jpg" class="zoom-img"></div>
+        <div class="photo-item small"><img src="images/Filip.jpg" class="zoom-img"></div>
+        <div class="photo-item small"><img src="images/Pufo.jpg" class="zoom-img"></div>
         
         <!-- sem môžeš pridávať ďalšie -->
     </div>
@@ -95,8 +95,31 @@
 
 
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".zoom-img");
+    const lightbox = document.createElement("div");
+    lightbox.classList.add("lightbox");
+    document.body.appendChild(lightbox);
+
+    const img = document.createElement("img");
+    lightbox.appendChild(img);
+
+    // Show image
+    images.forEach(picture => {
+        picture.addEventListener("click", () => {
+            img.src = picture.src;
+            lightbox.classList.add("active");
+        });
+    });
+
+    // Close when clicking anywhere
+    lightbox.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+    });
+});
+</script>
 
 
 </body>
 </html>
-
