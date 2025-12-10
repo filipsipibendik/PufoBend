@@ -75,7 +75,19 @@ h1 {
   font-size: 2rem;
   margin-top: 0;
   margin-bottom: 20px;
-  color: #ffcc00;
+ 
+
+}
+h5 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+ color: #ffcc00;           /* žltá farba */
+    font-weight: 900;          /* extra bold */
+    -webkit-text-stroke: 2px black; /* čierny obrys */
+    font-size: 30px;           /* veľkosť podľa potreby */
+}
 
 }
 
@@ -230,15 +242,23 @@ audio {
 header {
     background: #1a1a1a;
     padding: 20px;
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 36px;
+    font-weight: 900;
     color: #ffcc00;
-
 }
 
+header .header-logo {
+    height: 50px;   /* nastav podľa potreby */
+    width: auto;
+}
+
+
 nav {
-    background: #111;
+    background: #1a1a1a;
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -301,18 +321,16 @@ text-align: justify;
 }
 
 .photo-item {
+    aspect-ratio: 16/9; /* alebo 1/1 pre štvorce */
     width: 100%;
-    height: 400px;       /* môžeš meniť podľa potreby */
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    background: #222;
-    box-shadow: 0 0 12px rgba(0,0,0,0.4);
 }
+
 .photo-item img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
+    height: 100%;
+    object-fit: cover; /* krásne vyplní */
 }
 
 /* Grid s malou výškou */
@@ -370,4 +388,115 @@ width: 100%;
     object-fit: contain;
     border-radius: 10px;
     display: block;
+}
+
+/* Lightbox arrows */
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+    user-select: none;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev:hover, .lightbox-next:hover {
+    color: #ffcc00;
+}
+
+
+/* NAV BAR - FINAL FIXED VERSION */
+nav {
+    background: #111;
+    padding: 18px 0;
+    position: relative;
+
+    max-width: 1300px;     /* zarovnanie s hlavným contentom */
+    margin: 20px auto 0;  /* 🔥 nav je teraz nižšie */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left + Right */
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 35px;
+    margin: 0 40px;
+}
+
+/* Stred – DOMOV */
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Normálne odkazy */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+/* DOMOV button */
+nav .home-link {
+    font-size: 28px;
+    font-weight: 900;
+    padding: 12px 32px;
+    background: #ffcc00;
+    color: #111;
+    border-radius: 40px;
+    border: 3px solid #ffcc00;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px #ffcc00aa;
+    transition: 0.25s;
+}
+
+/* Hover – už bez posunu */
+nav .home-link:hover {
+    background: #111;
+    color: #ffcc00;
+    box-shadow: 0 0 22px #ffcc00;
+    transform: scale(1.12);  /* nezačne utekať */
+}
+
+.hidden-gallery {
+    display: none;
+
+}
+
+.gallery-preview img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: block;
+    margin: 80px auto;   /* len hore + dole, auto na centrovanie */
+
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    transition: 0.25s;
+}
+
+.gallery-preview img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 18px rgba(255,204,0,0.7);
+}
+
+.homepage-bg {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: url("images/smoke.jpg") center/cover fixed no-repeat #111;
+  padding-top: 40px; /* ak potrebuješ odstup */
+  color: #eee;
+  line-height: 1.6;
 }
