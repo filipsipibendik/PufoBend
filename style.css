@@ -500,3 +500,15 @@ nav .home-link:hover {
   color: #eee;
   line-height: 1.6;
 }
+.audio-wrapper {
+    display: flex;
+    justify-content: center; /* horizontálne centrovanie */
+    margin: 30px 0;          /* zhora/dole medzera */
+}
+
+.audio-wrapper audio {
+    width: 100%;        /* voliteľné, ak chceš väčší player */
+    max-width: 500px;   /* alebo akú veľkosť chceš */
+    border-radius: 8px;
+}
+
